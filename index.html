@@ -102,7 +102,7 @@
 		 * }
 		 *********************************************************************/
 		var tab_names = {
-			"all_content"	:"All Content",
+			"all_content"		:"All Content",
 			"leiden"			:"Leiden Collections",
 			"special"			:"Special Collections"
 		}
@@ -128,23 +128,43 @@
 		 *     "TCC_EBOOK":"Ebooks Only"
 		 * }
 		 *********************************************************************/
-		/*
-		//Dit lijkt niet te werken
+		
 		var scopes = {
-			"All_Content"		:"Everything",
-			"UBL"						:"UBL",
-			"UBL_SFX"				:"SFX",
+			"All_Content"		:"All Content",//check
+			""					:"---",
+			"Local"				:"Leiden Collections (all library locations)",
+			"lib_ub"			:"- Law Library",
+			"lib_fsw"			:"- Social Behavioral Sciences Library",
+			"lib_wn"			:"- Mathematics and Natural Sciences Libraries",
+			"lib_eal"			:"- East Asian Library",
+			"lib_med"			:"- Medical Libraries",
+			"lib_luc"			:"- Library Learning Centre Den Haag",
+			"lib_nino"			:"- NINO Library",
+			"lib_boerh"			:"- Boerhaave Museum Library",
+			"lib_kit"			:"- Colonial Collection (KIT)",
+			"lib_kitlv"			:"- KITLV Collection",
+			"lib_jakar"			:"- KITLV Jakarta",
+			""					:"---",
+			"special"			:"Special Collections",
+			"Collection_guides"	:"- Collection guides and online exhibitions",
+			"databases"			:"- Databases",
+			"drawings"			:"- Drawings",
+			"early_prints"		:"- Rare books",
+			"metters"			:"- Letters",
+			"manuscripts"		:"- Manuscripts and Archives",
+			"maps"				:"- Maps",
+			"paintings"			:"- Paintings",
+			"photographica"		:"- Photographica",
+			"photos"			:"- Photographs",
+			"prints"			:"- Prints",
+			""					: "---",
+			"UBL"				:"UBL",
+			"UBL_SFX"			:"SFX",
 			"UBL_METALIB"		:"Metalib",
-			"UBL_DTL"				:"Digitool",
-			"UBL_LMS"				:"LMS",
+			"UBL_DTL"			:"Digitool",
+			"UBL_LMS"			:"LMS",
 			"UBL_ALMA"			:"ALMA",
 			"UBL_DSPACE"		:"DSPACE",
-		}*/
-
-		var scopes = {
-			"all_content"	:"All Content",
-			"leiden"			:"Leiden Collections",
-			"special"			:"Special Collections"
 		}
 
 
@@ -169,14 +189,14 @@
 		var facet_types = {
 			"facet_none"				:"Choose Facet",
 			"facet_rtype"				:"Resource Type",
-			"facet_tlevel"			:"Top Level Facet (Full-text of Available)",
-			"facet_creator"			:"Author/Creator",
+			"facet_tlevel"				:"Top Level Facet (Full-text of Available)",
+			"facet_creator"				:"Author/Creator",
 			"facet_lang"				:"Language",
 			"facet_topic"				:"Subject",
-			"facet_creationdate":"Creation Date (Year Range)",
-			"facet_date_range"	:"Creation Date (Exact Date Range)",
+			"facet_creationdate"		:"Creation Date (Year Range)",
+			"facet_date_range"			:"Creation Date (Exact Date Range)",
 			"facet_fmt"					:"Format",
-			"facet_library"			:"Library",
+			"facet_library"				:"Library",
 		}
 
 
@@ -735,6 +755,10 @@
 			/**
 			 * facets must come after the query or the first facet will appear in the search box on the results page.
 			 */
+			 
+			 //Clear test link
+			 $('#testresult').empty();
+			 
 			if(isEmpty(criteria)) {
 				$('#result').val('<div>\r   <script type="text/javascript">');
 				$('#result').val($('#result').val() + '\r      function s(){\r         ');
@@ -748,11 +772,13 @@
 				url += encodeURIComponent(criteria);
 				if(facet_query.length>0) url += facet_query;
 
-				var link = "<a href='" + url + "'>";
-				link += isEmpty(label) ? 'Search for ' + criteria : label;
-				link += "</a>";
+				var link = "<a target='_blank' href='" + url + "'>Test</a>";
 
-				$('#result').val(link);
+				$('#result').val(url);
+				
+				//Add and show test link
+				$('#testresult').html(link).show();
+				
 			}
 
 			$('#result').select();
@@ -1022,6 +1048,7 @@
 		<div class='row'>
 			<fieldset>
 				<legend>Results</legend>
+				<div id="testresult" style="display:none"></div>
 				<textarea id='result' name='result'></textarea>
 			</fieldset>
 		</div>
