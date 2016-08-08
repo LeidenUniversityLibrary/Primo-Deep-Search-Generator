@@ -131,7 +131,7 @@
 		
 		var scopes = {
 			"All_Content"		:"All Content",//check
-			""					:"---",
+			"#1"					:"---",
 			"all_leiden_collections"				:"Leiden Collections (all library locations)",
 			"lib_ub"			:"- Law Library",
 			"lib_fsw"			:"- Social Behavioral Sciences Library",
@@ -144,7 +144,7 @@
 			"lib_kit"			:"- Colonial Collection (KIT)",
 			"lib_kitlv"			:"- KITLV Collection",
 			"lib_jakar"			:"- KITLV Jakarta",
-			""					:"---",
+			"#2"					:"---",
 			"all_special_collections"			:"Special Collections",
 			"Collection_guides"	:"- Collection guides and online exhibitions",
 			"databases"			:"- Databases",
@@ -157,7 +157,7 @@
 			"photographica"		:"- Photographica",
 			"photos"			:"- Photographs",
 			"prints"			:"- Prints",
-			""					: "---",
+			"#3"					: "---",
 			"UBL"				:"UBL",
 			"UBL_SFX"			:"SFX",
 			"UBL_METALIB"		:"Metalib",
@@ -801,6 +801,7 @@
 		.input { min-width:15em; }
 		#result { width:98%; min-height:15em; }
 		.date_range { width:4em; }
+		.hide{ display:none; }
 	</style>
 </head>
 
@@ -811,7 +812,7 @@
 <body>
 	<h3>Primo Search Widget/Link Creator</h3>
 
-	<div id='instructions' class='instructions'>
+	<div id='instructions' class='instructions hide'>
 		<fieldset>
 			<legend>Instructions</legend>
 			<ol>
@@ -824,7 +825,7 @@
 	</div>
 
 
-	<div id='hints' class='instructions'>
+	<div id='hints' class='instructions hide'>
 		<fieldset>
 			<legend>Hints</legend>
 			<ul>
@@ -853,7 +854,7 @@
 		</fieldset>
 	</div>
 
-	<div id='examples' class='instructions'>
+	<div id='examples' class='instructions hide'>
 		<fieldset>
 			<legend>Examples</legend>
 			<ol>
@@ -888,7 +889,7 @@
 
 	<div id='main'>
 		<form method='get'>
-			<fieldset>
+			<fieldset class="hide">
 				<legend>Primo Information</legend>
 				<div class='row'>
 					<div class='col label'>
