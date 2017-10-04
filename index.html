@@ -760,14 +760,7 @@
 			 $('#testresult').empty();
 			 
 			if(isEmpty(criteria)) {
-				$('#result').val('<div>\r   <script type="text/javascript">');
-				$('#result').val($('#result').val() + '\r      function s(){\r         ');
-				$('#result').val($('#result').val() + 'window.location="');
-				$('#result').val($('#result').val() + url + '"');
-				$('#result').val($('#result').val() + "+document" + "." + "getElementById" + "('c')" + "." + "value");
-				if(facet_query.length>0) $('#result').val($('#result').val() + '+"' + facet_query + '"');
-				$('#result').val($('#result').val() + ";\r      }" + "\r   </script" + ">");
-				$('#result').val($('#result').val() + "\r   <form><label for='c'>"+label+"</label><input type='text' id='c'><input type='button' value='search' onclick='s()'></form>\r</div>");
+				alert("Search Criteria veld is verplicht");
 			} else {
 				url += encodeURIComponent(criteria);
 				if(facet_query.length>0) url += facet_query;
